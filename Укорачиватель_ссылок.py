@@ -25,6 +25,26 @@ class MarsURLEncoder:
 
 
 
+import hashlib
+
+class MarsURLEncoder:
+
+    def __init__(self):
+        self.dict = {}
+
+    def encode(self, long_url):
+        heder = "https://ma.rs/"
+        key = heder+hashlib.sha3_384(long_url.encode()).hexdigest()
+        if self.dict.get(key) is None:
+            self.dict[key] = long_url
+        return key
+
+    def decode(self, short_url):
+        return self.dict.get(short_url)
+
+
+
+
 
 
 # список доступных алгоритмов
