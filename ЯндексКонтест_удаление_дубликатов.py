@@ -40,10 +40,6 @@ def main():
     # Инициализируем пустой список для сохранения результата.
     result = []
 
-
-    # c = list(set(first_array) & set(b))
-    # print(c)
-
     # Чтобы получить каждый дубликат только один раз, можно использовать множества:
     visited = set()  # пустое множество
 
@@ -62,7 +58,7 @@ def main():
     uniq_list = list(uniq)  # список дубликатов (отсортированный)
     print(*uniq_list)  # распаковка списка, разделитель - пробел
 
-    result = list(set(first_array) - uniq)
+    result = (len(first_array) - len(uniq))
     print(result)
 
 
@@ -82,7 +78,25 @@ def main():
     # #print(' '.join(result))
 
 
+#__________________РАБОЧИЙ ВАРИАНТ____________________________
+count = int(input())
+first_array = input().split(' ')
+result = []
+index = 0
 
+for i in range(count):
+    val = first_array[i]
+    if i+1 >= len(first_array):
+        result.insert(index, val)
+        break
+
+    if val != first_array[i+1]:
+        result.insert(index, val)
+        index += 1
+    else:
+        result.append("_")
+
+print(" ".join(result))
 
 
 
