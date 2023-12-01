@@ -46,20 +46,18 @@ def find_index(data, num):
     # граничные значения
     if data[right_pointer] < num:
         return len(data)
-    elif data[left_pointer] > num:
+    elif data[left_pointer] >= num:
         return 0
 
     while left_pointer <= right_pointer:
-        mid = round(left_pointer + right_pointer) // 2
-        print(f"{left_pointer=}")
-        print(f"{right_pointer=}")
-        print(f"{mid=}")
+        mid = round(left_pointer + right_pointer) // 2  # индекс эл-та в центре
         if data[mid] == num:
             return mid
         if data[mid] < num:
             left_pointer = mid + 1
         else:
             right_pointer = mid - 1
+            return right_pointer + 1
         #return mid + 1
 
 
