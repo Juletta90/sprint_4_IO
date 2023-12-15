@@ -58,7 +58,6 @@ def find_index(data, num):
         else:
             right_pointer = mid - 1
             return right_pointer + 1
-        #return mid + 1
 
 
 if __name__ == '__main__':
